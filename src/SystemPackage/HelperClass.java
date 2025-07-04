@@ -1,3 +1,8 @@
+package SystemPackage;
+
+import ItemsPackage.BorrowItem;
+import ItemsPackage.Item;
+
 import java.util.List;
 import java.util.Scanner;
 

@@ -1,3 +1,5 @@
+package ItemsPackage;
+
 import java.util.List;
 
 public class Projects extends Item {
@@ -72,6 +74,6 @@ public class Projects extends Item {
 
     @Override
     public String getTypeItem() {
-        return "Projects";
+        return "ItemsPackage.Projects";
     }
 }

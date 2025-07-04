@@ -1,3 +1,7 @@
+package MemberPackage;
+
+import ItemsPackage.BorrowItem;
+
 import java.util.ArrayList;
 import java.util.List;
 

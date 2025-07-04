@@ -1,3 +1,10 @@
+package SystemPackage;
+
+import ItemsPackage.Books;
+import ItemsPackage.BorrowItem;
+import ItemsPackage.Item;
+import ItemsPackage.Projects;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +16,7 @@ public class Library {
     static final String admin = "Admin";
     static final int password = 2025;
     static List<Members> members = new ArrayList<>();
-    static List<Item> items = new ArrayList<>();
+    public static List<Item> items = new ArrayList<>();
 
     /*-------------------------------- Methods ----------------------------------------*/
 
@@ -220,7 +227,7 @@ public class Library {
         Members member = HelperClass.checkMember(HelperClass.cin.next(), members);
         if (member != null) {
             if (member.getCurrentBorrowings() < maxCurrentBorrowingsNumber) {
-                System.out.print("Enter Item's ID: ");
+                System.out.print("Enter ItemsPackage.Item's ID: ");
                 Item item = HelperClass.checkItem(HelperClass.cin.next(), items, "ID");
                 if (item != null) {
                     if (!item.isBorrowing()) {
@@ -234,7 +241,7 @@ public class Library {
                     }
                     return;
                 } else {
-                    System.err.println("Item with the given ID not found.");
+                    System.err.println("ItemsPackage.Item with the given ID not found.");
                 }
             } else {
                 System.err.println("The member already has 3 active loans.");
@@ -249,13 +256,13 @@ public class Library {
         System.out.println("Please Enter Member's Name:");
         Members member = HelperClass.checkMember(HelperClass.cin.next(), members);
         if (member != null) {
-            System.out.print("Enter Item's ID: ");
+            System.out.print("Enter ItemsPackage.Item's ID: ");
             Item item = HelperClass.checkBorrowedItem(HelperClass.cin.nextInt(), member.borrowItems);
             if (item != null) {
                 item.setBorrowing(false);
-                System.out.println(OutputClass.Color_GREEN + "The Item Was Returned Successfully." + OutputClass.Color_RESET);
+                System.out.println(OutputClass.Color_GREEN + "The ItemsPackage.Item Was Returned Successfully." + OutputClass.Color_RESET);
             } else {
-                System.out.println("Member didn't Borrowed this Item.");
+                System.out.println("Member didn't Borrowed this ItemsPackage.Item.");
             }
         } else {
             System.err.println("Member not found in the system.");
@@ -299,7 +306,7 @@ public class Library {
 
     /*------------ Question -8- ------------ */
     static public void showAllMemberWithIntelligenceBook() {
-        System.out.println("Members who borrowed artificial intelligence books are:");
+        System.out.println("MemberPackage.Members who borrowed artificial intelligence books are:");
         for (Members member : members) {
             boolean hasAiBook = false;
             for (BorrowItem borrowItem : member.borrowItems) {
