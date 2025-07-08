@@ -2,12 +2,13 @@ package SystemPackage;
 
 import ItemsPackage.BorrowItem;
 import ItemsPackage.Item;
+import MemberPackage.Members;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class HelperClass {
-    static Scanner cin = new Scanner(System.in);
+    public static Scanner cin = new Scanner(System.in);
     static String tempStringInput;
     static int tempIntInput;
 

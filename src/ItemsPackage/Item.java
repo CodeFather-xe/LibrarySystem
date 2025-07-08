@@ -1,5 +1,8 @@
 package ItemsPackage;
 
+import SystemPackage.HelperClass;
+
+
 public abstract class Item {
 
     /*--------Attributes--------*/

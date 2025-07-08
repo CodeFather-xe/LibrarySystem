@@ -4,10 +4,12 @@ import ItemsPackage.Books;
 import ItemsPackage.BorrowItem;
 import ItemsPackage.Item;
 import ItemsPackage.Projects;
-
+import MemberPackage.Members;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import static SystemPackage.OutputClass.*;
 
 public class Library {
     /*--------Attributes--------*/
@@ -43,8 +45,8 @@ public class Library {
 
     /* --------------Question -2- ----------------------*/
     static public void displayMembersWithBorrow() {
-        if (members.isEmpty())
-            System.out.println("sorry,no members to display");
+    if (members.isEmpty())
+      System.out.print(Color_RED + "*\t\tSorry, No Members to Display\t\t*" +Color_RESET);
         for (Members member : members) {
             System.out.println("---------------------");
             System.out.println("name:" + member.getName());
@@ -260,7 +262,7 @@ public class Library {
             Item item = HelperClass.checkBorrowedItem(HelperClass.cin.nextInt(), member.borrowItems);
             if (item != null) {
                 item.setBorrowing(false);
-                System.out.println(OutputClass.Color_GREEN + "The ItemsPackage.Item Was Returned Successfully." + OutputClass.Color_RESET);
+                System.out.println(OutputClass.Color_GREEN + "The ItemsPackage.Item Was Returned Successfully." + Color_RESET);
             } else {
                 System.out.println("Member didn't Borrowed this ItemsPackage.Item.");
             }

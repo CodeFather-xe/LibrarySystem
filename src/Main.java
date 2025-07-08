@@ -10,11 +10,10 @@ public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
-
         start();
     }
 
-    public static void start(){
+    public static void start() throws InterruptedException {
         Library library = new Library();
         List<Books> sampleBooks = new ArrayList<>();
         sampleBooks.add(new Books(1, "Introduction to Algorithms", 2009, "Thomas H. Cormen", "Software", 1312, "MIT Press"));
@@ -64,5 +63,6 @@ public class Main {
         ));
         Library.items.addAll(sampleProjects);
 
+    OutputClass.printLogin();
     }
 }

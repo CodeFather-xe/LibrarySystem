@@ -1,6 +1,7 @@
 package ItemsPackage;
 
 import java.util.List;
+import SystemPackage.HelperClass;
 
 public class Projects extends Item {
 
