@@ -1,5 +1,7 @@
 package SystemPackage;
 
+import java.util.ListResourceBundle;
+
 public class OutputClass {
 
   /*--------COLORS--------*/
@@ -161,15 +163,30 @@ public class OutputClass {
     switch (HelperClass.tempIntInput) {
       case 1:
         Library.addMember();
+        manageMembers();
         break;
       case 2:
         Library.deleteMember();
+        manageMembers();
         break;
       case 3:
         Library.displayMembersWithBorrow();
+        manageMembers();
         break;
+
+      case 4:
+        Library.showAllMemberWithIntelligenceBook();
+        manageMembers();
+        break;
+      case 5:
+      Library.printOverdueMembers();
+        manageMembers();
+        break;
+      case 6:
+        //TODO : membersWhoBorrowedBookInDateRange();
       case 0:
         printMainOperation();
+        manageMembers();
         break;
       default:
         System.err.println("*\t  Invalid input, Enter valid Operation  \t*");
@@ -207,26 +224,32 @@ public class OutputClass {
     switch (HelperClass.tempIntInput) {
       case 1:
         Library.addBook();
+        manageItems();
         break;
       case 2:
         Library.addProject();
+        manageItems();
         break;
       case 3:
         Library.searchItem();
+        manageItems();
         break;
       case 4:
         Library.showProjectByYear();
+        manageItems();
         break;
       case 5:
         Library.displayAllBooks();
+        manageItems();
         break;
       case 6:
         Library.printAllCurrentlyBorrowedBooks();
+        manageItems();
         break;
       case 7:
 Library.showAvailableProjectsByCategory();
+        manageItems();
 break;
-
       case 0:
         printMainOperation();
         break;

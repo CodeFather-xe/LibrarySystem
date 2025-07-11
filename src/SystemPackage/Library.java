@@ -30,7 +30,7 @@ public class Library {
         while (!check) {
             System.out.println("*".repeat(49));
             System.out.print("* Enter Member's Name: ");
-            tempStringInput = cin.nextLine();
+            tempStringInput = cin.next();
             tempIntInput = (int) (Math.random() * ((500 - 1)) + 1);
             for (Members x : members) {
                 if (tempStringInput.equals(x.getName())) {
@@ -88,14 +88,14 @@ public class Library {
         if (members.isEmpty())
             System.out.print(Color_RED + "*\t\tSorry, No Members to Display\t\t*" + Color_RESET);
         for (Members member : members) {
-            System.out.println("---------------------");
-            System.out.println("name:" + member.getName());
-            System.out.println("membership number:" + member.getMembershipNumber());
-            System.out.println("current borrowings:" + member.getCurrentBorrowings());
+            System.out.println("*".repeat(20));
+            System.out.println("Name: " + member.getName());
+            System.out.println("Membership Number: " + member.getMembershipNumber());
+            System.out.println("Current borrowings: " + member.getCurrentBorrowings());
             if (member.borrowItems.isEmpty()) {
-                System.out.println("no items currently borrowed");
+                System.out.println("No Items Currently Borrowed");
             } else {
-                System.out.println("borrowed items are:");
+                System.out.println("Borrowed Items Are:");
                 for (BorrowItem borrowItem : member.borrowItems) {
                     Item item = borrowItem.item;
                     System.out.println(
@@ -103,13 +103,13 @@ public class Library {
                                     + item.getTypeItem()
                                     + " | ID: "
                                     + item.getId()
-                                    + " | title: "
+                                    + " | Title: "
                                     + item.getTitle());
-                    System.out.println("borrowed on: " + borrowItem.getDateBorrow());
-                    System.out.println("due on: " + borrowItem.getDateReturn());
+                    System.out.println("Borrowed On: " + borrowItem.getDateBorrow());
+                    System.out.println("Due on: " + borrowItem.getDateReturn());
                 }
             }
-            System.out.println("====================================\n");
+            System.out.println("*".repeat(20));
         }
     }
 
@@ -372,7 +372,7 @@ public class Library {
     /*---------------- Baraa's Method ----------------*/
 
     /*------------ Question -9- ------------ */
-    public static boolean hasOverdueItems(Members member) {
+    public static boolean hasOverdueItems( Members member) {
         for (BorrowItem b : member.borrowItems) {
             if (b.item.isBorrowing()) return true;
         }

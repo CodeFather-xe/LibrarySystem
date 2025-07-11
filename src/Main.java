@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         start();
-        Library.addMember();
+        OutputClass.printLogin();
 
     }
 
