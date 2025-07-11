@@ -2,7 +2,6 @@ package MemberPackage;
 
 import ItemsPackage.BorrowItem;
 import ItemsPackage.Item;
-import SystemPackage.Library;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +10,9 @@ public class Members {
 
     /*--------Attributes--------*/
     private String name;
-    private int membershipNumber;
+    private final int membershipNumber;
     private int CurrentBorrowings = 0;
     public List<BorrowItem> borrowItems = new ArrayList<>();
-
 
     /*--------Constructors--------*/
     public Members(int membershipNumber, String name) {
@@ -22,14 +20,9 @@ public class Members {
         this.membershipNumber = membershipNumber;
     }
 
-
     /*--------Setter and Getter--------*/
     public int getMembershipNumber() {
         return membershipNumber;
-    }
-
-    public void setMembershipNumber(int membershipNumber) {
-        this.membershipNumber = membershipNumber;
     }
 
     public String getName() {
@@ -50,15 +43,32 @@ public class Members {
     }
 
     public void getALlInformation() {
-        System.out.println("---------------------");
-        System.out.println("name:" + name);
-        System.out.println("membership number:" + membershipNumber);
-        System.out.println("current borrowings:" + CurrentBorrowings);
-        System.out.println("---------------------");
+        System.out.println("*".repeat(20));
+        System.out.println("Name: " + this.getName());
+        System.out.println("Membership Number: " + this.getMembershipNumber());
+        System.out.println("Current borrowings: " + this.getCurrentBorrowings());
+        if (this.borrowItems.isEmpty()) {
+            System.out.println("No Items Currently Borrowed");
+        } else {
+            System.out.println("Borrowed Items Are:");
+            for (BorrowItem borrowItem : this.borrowItems) {
+                Item item = borrowItem.item;
+                System.out.println(
+                        "---->"
+                                + item.getTypeItem()
+                                + " | ID: "
+                                + item.getId()
+                                + " | Title: "
+                                + item.getTitle());
+                System.out.println("Borrowed On: " + borrowItem.getDateBorrow());
+                System.out.println("Due on: " + borrowItem.getDateReturn());
+            }
+        }
+        System.out.println("*".repeat(20));
     }
 
-     public boolean hasBorrowedThisItem(Item item) {
-            for (BorrowItem i : this.borrowItems) if (i.item.equals(item)) return true;
-        return false;
-    }
+public boolean hasBorrowedThisItem(Item item) {
+    for (BorrowItem i : this.borrowItems) if (i.item.equals(item)) return true;
+    return false;
+}
 }
