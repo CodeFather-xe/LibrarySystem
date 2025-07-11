@@ -1,6 +1,8 @@
 package MemberPackage;
 
 import ItemsPackage.BorrowItem;
+import ItemsPackage.Item;
+import SystemPackage.Library;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +55,10 @@ public class Members {
         System.out.println("membership number:" + membershipNumber);
         System.out.println("current borrowings:" + CurrentBorrowings);
         System.out.println("---------------------");
+    }
+
+     public boolean hasBorrowedThisItem(Item item) {
+            for (BorrowItem i : this.borrowItems) if (i.item.equals(item)) return true;
+        return false;
     }
 }
