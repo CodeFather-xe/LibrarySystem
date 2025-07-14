@@ -1,12 +1,7 @@
 package SystemPackage;
 
-import ItemsPackage.Books;
-import ItemsPackage.BorrowItem;
-import ItemsPackage.Item;
-import ItemsPackage.Projects;
+import ItemsPackage.*;
 import MemberPackage.Members;
-
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,15 +73,16 @@ public class Library {
             }
             // if(found=false)
             if (!found) System.err.println("No books found in the library");
-            System.out.println("*".repeat(49));
-            OutputClass.manageItems();
+
         }
+        System.out.println("*".repeat(49));
+        OutputClass.manageItems();
     }
 
     /* --------------Question -2- ----------------------*/
     public static void displayMembersWithBorrow() {
         if (members.isEmpty())
-            System.out.print(Color_RED + "*\t\tSorry, No Members to Display\t\t*" + Color_RESET);
+            System.out.println(Color_RED + "*\t\tSorry, No Members to Display\t\t*" + Color_RESET);
         for (Members member : members) {
             System.out.println("*".repeat(20));
             System.out.println("Name: " + member.getName());
@@ -116,7 +112,7 @@ public class Library {
     /*------------------ Question -3- -----------------*/
     // Ahmed Just Add Some Comments To Joelle AddBook Method
     public static void addBook() {
-        System.out.println("Fill in these information's about the book you want to add!");
+        System.out.println("Fill in these Information's About The Book You Want to Add!");
 
         // Book ID
         System.out.println("Book ID: ");
@@ -177,7 +173,7 @@ public class Library {
         cin.nextLine();
 
         // Work team members
-        System.out.println("Enter your work team members. Type 'done' when finished:");
+        System.out.println("Enter Your Work Team Members.\n \uD83D\uDD3AType 'Done' When Finished:");
         ArrayList<String> team = new ArrayList<>();
         while (true) {
             System.out.print("-> ");
@@ -189,22 +185,20 @@ public class Library {
                 team.add(member);
             }
         }
-
         String year = Projects.setYear();
-
         // Create new project and add it
         // Ahmed Edit Project Constructor To Add specialization
         Projects newProject = new Projects(id, name, publish_year, specialization, team, year);
         items.add(newProject);
 
-        System.out.println("Project added successfully!");
+        System.out.println("Project Added Successfully!");
     }
 
     /*-----------------Question -4- ---------------*/
     public static void searchItem() {
-        System.out.println(
+        System.out.print(
                 """
-                        what do you want to Search by:
+                        What Do You Want to Search by:
                         1) ID
                         2) Title
                         3) Specialization
@@ -212,7 +206,6 @@ public class Library {
         System.out.print("--> ");
         int choice = cin.nextInt();
         cin.nextLine();
-
         switch (choice) {
             case 1 -> {
                 System.out.print("Enter the ID: ");
@@ -235,7 +228,6 @@ public class Library {
                     if (item.getTitle().equalsIgnoreCase(title)) {
                         item.printItemDetails(item);
                         found = true;
-                        break;
                     }
                 }
                 if (!found) System.err.println("Sorry! No item found with this title.");
@@ -249,7 +241,7 @@ public class Library {
                             && item.getSpecialization().equalsIgnoreCase(specialization)) {
                         item.printItemDetails(item);
                         found = true;
-                        break;
+
                     }
                 }
                 if (!found) System.err.println("Sorry! No item found with this specialization.");
@@ -267,28 +259,28 @@ public class Library {
 
     /*------------ Question -5- ------------ */
     public static void requestLoanItem() {
-        System.out.println("Please Enter Member's Name:");
+        System.out.println("* Please Enter Member's Name:");
         Members member = checkMember(cin.next(), members);
         if (member != null) {
             if (member.getCurrentBorrowings() < maxCurrentBorrowingsNumber) {
-                System.out.print("Enter ItemsPackage.Item's ID: ");
+                System.out.print("Enter Item's ID: ");
                 Item item = checkItem(cin.next(), items, "ID");
                 if (item != null) {
                     if (!item.isBorrowing()) {
                         member.borrowItems.add(
                                 new BorrowItem(LocalDate.now(), LocalDate.now().plusDays(7), item));
                         item.setBorrowing(true);
-                        System.out.println("The operation was successful.");
+                        System.out.println("The Operation Was Successful.");
                         System.out.println(
-                                "The member has until " + LocalDate.now().plusDays(7) + " to return the item.");
+                                "The Member has Until " + LocalDate.now().plusDays(7) + " to Return the Item.");
 
                     } else {
-                        System.err.println("This item is already borrowed by another member.");
+                        System.err.println("This Item is Already Borrowed by Another Member.");
                     }
-                    return;
                 } else {
-                    System.err.println("ItemsPackage.Item with the given ID not found.");
+                    System.err.println("Item with the given ID not found.");
                 }
+                return;
             } else {
                 System.err.println("The member already has 3 active loans.");
             }
@@ -301,19 +293,19 @@ public class Library {
         System.out.println("Please Enter Member's Name:");
         Members member = checkMember(cin.next(), members);
         if (member != null) {
-            System.out.print("Enter ItemsPackage.Item's ID: ");
+            System.out.print("Enter Item's ID: ");
             Item item = checkBorrowedItem(cin.nextInt(), member.borrowItems);
             if (item != null) {
                 item.setBorrowing(false);
                 System.out.println(
                         OutputClass.Color_GREEN
-                                + "The ItemsPackage.Item Was Returned Successfully."
+                                + "The Item Was Returned Successfully."
                                 + Color_RESET);
             } else {
-                System.out.println("Member didn't Borrowed this ItemsPackage.Item.");
+                System.out.println("Member didn't Borrowed this Item.");
             }
         } else {
-            System.err.println("Member not found in the system.");
+            System.err.println("Member not found in the System.");
         }
     }
 
@@ -353,7 +345,7 @@ public class Library {
 
     /*------------ Question -8- ------------ */
     public static void showAllMemberWithIntelligenceBook() {
-        System.out.println("MemberPackage.Members who borrowed artificial intelligence books are:");
+        System.out.println("Members who borrowed Artificial Intelligence Books are:");
         for (Members member : members) {
             boolean hasAiBook = false;
             for (BorrowItem borrowItem : member.borrowItems) {

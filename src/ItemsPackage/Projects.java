@@ -65,16 +65,16 @@ public class Projects extends Item {
         super.printItemDetails(item);
         Projects projects = (Projects) item;
         System.out.println("----------------------------");
-        System.out.println("Academic Year: " + projects.getYear());
-        System.out.println("Work Team They:");
+        System.out.println("* Academic Year: " + projects.getYear());
+        System.out.println("* Work Team They:");
         for (String name : work_team) {
-            System.out.println("-> " + name);
+            System.out.println("--> " + name);
         }
         System.out.println("----------------------------");
     }
 
     @Override
     public String getTypeItem() {
-        return "ItemsPackage.Projects";
+        return "Project";
     }
 }

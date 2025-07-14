@@ -125,7 +125,7 @@ public class OutputClass {
         System.out.println("* " + "\t".repeat(12) + "*" + Color_RESET);
         Thread.sleep(1500);
         System.err.println("*".repeat(18) + " System End! " + "*".repeat(18));
-        return;
+        break;
       default:
         System.err.println("*\t\tInvalid input, Enter valid Section\t\t*");
         Thread.sleep(500);
@@ -173,7 +173,6 @@ public class OutputClass {
         Library.displayMembersWithBorrow();
         manageMembers();
         break;
-
       case 4:
         Library.showAllMemberWithIntelligenceBook();
         manageMembers();
@@ -205,7 +204,7 @@ public class OutputClass {
     System.out.println("*  2) Add New Project." + "\t".repeat(7) + "*");
     System.out.println("*  3) Search for Item." + "\t".repeat(7) + "*");
     System.out.println("*  4) Show Project with specific Academic Year.\t*");
-    System.out.println("*  5) Show All Books." + "\t".repeat(6) + "*");
+    System.out.println("*  5) Show All Books." + "\t".repeat(7) + "*");
     System.out.println("*  6) Show All Borrowed Books." + "\t".repeat(5) + "*");
     System.out.println(
         "*  7) Show All Available Projects within"

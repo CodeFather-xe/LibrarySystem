@@ -48,9 +48,9 @@ public class BorrowItem {
     }
 
 //    public boolean isOverdue() {
-//        long now = new Date().getTime();
-//        long difference = now - dateBorrow.getTime(); // Error from getTime Method
-//        return dateReturn == null && difference > 7L * 24 * 60 * 60 * 1000;
+//       long now = new Date().getTime();
+//       long difference = now - dateBorrow.getTime(); // Error from getTime Method
+//       return dateReturn == null && difference > 7L * 24 * 60 * 60 * 1000;
 //    }
 //
 //    public boolean isReturned() {
